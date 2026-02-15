@@ -1,0 +1,42 @@
+EDA FINDINGS – HOUSE PRICE DATASET (King County)
+
+1. Dataset Overview:
+- The dataset contains 21,613 rows and 21 columns.
+- No missing values were found in the dataset.
+- The 'date' column was converted to proper datetime format.
+
+2. Price Distribution:
+- The price distribution is right-skewed.
+- Most houses are priced between approximately 300,000 and 650,000.
+- The maximum price before treatment was 7,700,000.
+
+3. Outlier Detection:
+- Outliers were detected using the IQR (Interquartile Range) method.
+- Q1 (25th percentile) = 321,950
+- Q3 (75th percentile) = 645,000
+- IQR = 323,050
+- Upper bound = 1,129,575
+- Total outliers detected = 1,159
+
+4. Outlier Handling:
+- Instead of removing outliers, price values above the upper bound were capped at 1,129,575.
+- This method preserved data while controlling extreme influence.
+- An additional column 'price_outlier_flag' was created to mark original outliers.
+
+5. Correlation Analysis:
+- Strongest positive correlations with price:
+    - Grade (0.706)
+    - Sqft_living (0.695)
+    - Sqft_living15 (0.629)
+    - Sqft_above (0.606)
+    - Bathrooms (0.535)
+
+- This indicates that house quality and living area size are the most influential factors in determining price.
+
+6. Key Insights:
+- Larger and higher-quality houses are significantly more expensive.
+- Bedrooms have weaker correlation compared to total living area.
+- Luxury houses exist in the dataset but were statistically treated using IQR capping.
+
+Conclusion:
+The dataset was successfully analyzed using EDA techniques including distribution analysis, IQR-based outlier detection, capping, and correlation analysis. The cleaned dataset is ready for further modeling or machine learning tasks.
